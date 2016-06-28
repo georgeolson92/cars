@@ -18,16 +18,16 @@ namespace CarDealership
       Get["/car/new"] = _ => {
         return View["sell_form.cshtml"];
       };
-      // Get["/cars/{id}"] = parameters => {
-      //   Car car = Cars.Find(parameters.id);
-      //   return View["car.cshtml", car];
-      // };
+      Get["/cars/{id}"] = parameters => {
+        Car car = Car.Find(parameters.id);
+        return View["car.cshtml", car];
+      };
       Post["/sellCar"] = _ => {
-        Car newCar = new Car(Request.Form["new-make"],Request.Form["new-model"],Request.Form["new-year"],Request.Form["new-miles"]);
+        Car newCar = new Car(Request.Form["new-make"],Request.Form["new-model"],Request.Form["new-year"],Request.Form["new-miles"],Request.Form["new-description"]);
         List<Car> allCars = Car.GetAll();
         return View["lot.cshtml", allCars];
       };
-      // Post["/sell"] = _ => {
+      // Post["/buy"] = _ => {
       //   List<Task> allTasks = Task.GetAll();
       //   ////remove car by ID?
       //   return View["sell.cshtml", allTasks];

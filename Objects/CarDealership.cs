@@ -8,15 +8,17 @@ namespace CarDealership.Objects
     private string _model;
     private string _year;
     private string _miles;
+    private string _description;
     private int _id;
     private static List<Car> _instances = new List<Car> {};
 
-    public Car (string make, string model, string year, string miles)
+    public Car (string make, string model, string year, string miles, string description)
     {
       _make = make;
       _model = model;
       _year = year;
       _miles = miles;
+      _description = description;
       _instances.Add(this);
       _id = _instances.Count;
     }
@@ -51,6 +53,14 @@ namespace CarDealership.Objects
     public void SetMiles(string newMiles)
     {
       _miles = newMiles;
+    }
+    public string GetDescription()
+    {
+      return _description;
+    }
+    public void SetDescription(string newDescription)
+    {
+      _description = newDescription;
     }
     public int GetId()
     {
