@@ -1,0 +1,9 @@
+<h1>All the cars in our LOT</h1>
+@foreach (var car in Model) {
+  <div class="car">
+    <h1>@car.GetMake()</h1>
+    <h2>@car.GetModel()</h2>
+    <h2>@car.GetYear()</h2>
+    <h3>@car.GetMiles()</h3>
+  </div>
+}
