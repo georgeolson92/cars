@@ -27,11 +27,12 @@ namespace CarDealership
         List<Car> allCars = Car.GetAll();
         return View["lot.cshtml", allCars];
       };
-      // Post["/buy"] = _ => {
-      //   List<Task> allTasks = Task.GetAll();
-      //   ////remove car by ID?
-      //   return View["sell.cshtml", allTasks];
-      // };
+      Post["/buy"] = _ => {
+        int _id = Request.Form["id"];
+        Car.BuyCar(_id);
+        List<Car> allCars = Car.GetAll();
+        return View["lot.cshtml", allCars];
+      };
     }
   }
 }

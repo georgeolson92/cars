@@ -66,6 +66,10 @@ namespace CarDealership.Objects
     {
       return _id;
     }
+    public void SetId(int newID)
+    {
+      _id = newID;
+    }
     public static List<Car> GetAll()
     {
       return _instances;
@@ -77,6 +81,14 @@ namespace CarDealership.Objects
     public static Car Find(int searchId)
     {
       return _instances[searchId-1];
+    }
+    public static void BuyCar(int removeID)
+    {
+      _instances.RemoveAt(removeID - 1);
+      for (int i = 0; i < _instances.Count; i++)
+      {
+        _instances[i].SetId(i+1);
+      }
     }
   }
 }
